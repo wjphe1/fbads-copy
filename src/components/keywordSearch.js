@@ -37,6 +37,12 @@ class Fbform extends React.Component {
             })
         }
     }
+
+    addComma = (num) => {
+        var num_parts = num.toString().split(".");
+        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return num_parts.join(".");
+    }
     
       render() {
         return (
@@ -63,10 +69,11 @@ class Fbform extends React.Component {
                                 {this.state.keydata.map(tile => (
                                     <tr key={tile.id}>
                                         <th scope="row">{tile.name}</th>
-                                        <td>{tile.audience_size}</td>
+                                        <td>{this.addComma(tile.audience_size)}</td>
                                         {tile.path.length && <td>{tile.path[0]}/{tile.path[1]}</td>}
                                         {!tile.path.length && <td> - </td>}
-                                        <td>{tile.topic}</td>
+                                        {tile.topic && <td>{tile.topic}</td>}
+                                        {!tile.topic && <td> - </td>}
                                         {tile.disambiguation_category && <td>{tile.disambiguation_category}</td>}
                                         {!tile.disambiguation_category && <td> - </td>}
                                     </tr>
@@ -76,6 +83,7 @@ class Fbform extends React.Component {
                         {!this.state.isloaded && <div className="m-5 text-center">Loading...</div>}
                         {!this.state.keydata && this.state.isloaded && !this.state.error && <div className="m-5 text-center">Search keyword to see results.</div>}
                         {!this.state.keydata && this.state.isloaded && this.state.error && <div className="m-5 text-center">No results found.</div>}
+                        {this.state.keydata && this.state.isloaded && !this.state.keydata.length && <div className="m-5 text-center">No results found.</div>}
                     </div>
                 </div>
             </div>
