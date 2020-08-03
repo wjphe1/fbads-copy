@@ -1,11 +1,11 @@
 import React from 'react';
-import Fbform from './fbForm.js';
+import KeywordSearch from './components/keywordSearch.js';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Fbform />
+      <KeywordSearch />
     </div>
   );
 }
