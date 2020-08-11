@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  width: 90%;
+  margin: 5%;
+  background: white;
+  border-radius: 10px;
+  padding: 40px;
+  position: relative;
 }
 
 .App-logo {
@@ -37,14 +42,35 @@
   }
 }
 
-/* keyword */
+h5 {
+  font-weight: 800;
+  line-height: 17px;
+  color: #3461A5;
+  margin: 20px 0 10px;
+  font-size: 15px;
+}
+
+.footer {
+  text-align: center;
+  color: #838383;
+  width: 100%;
+  font-size: 12px;
+}
+
+.btn-outline-primary {
+  font-size: 14px !important;
+}
+
+.card {
+  border-radius: 10px !important;
+}
+/* ------------------ keyword --------------------------- */
 .keyword-div {
   background: #FFFFFF;
   border: 1px solid #DCDCDC;
   box-sizing: border-box;
   border-radius: 15px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 15px;
   line-height: 18px;
   /* identical to box height */
   padding: 30px;
@@ -59,18 +85,12 @@
   cursor: pointer;
 }
 
-.keyword-div h2 {
-  color: #3461A5;
-  font-weight: bold;
-  font-size: 18px;
-}
-
 .keyword-div input {
   border: 1px solid #D3D3D3;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 15px;
-  margin: 10px 0;
+  margin: 5px 0 10px;
   width: 100%;
 }
 
@@ -82,9 +102,10 @@
   border: 1px solid #D3D3D3;
   box-sizing: border-box;
   border-radius: 5px !important;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 20px;
-  overflow-x: auto;
+  overflow: auto;
+  height: 300px;
 }
 
 .keyword-table th, .keyword-table td {
@@ -93,7 +114,7 @@
 
 .keyword-div .search-btn {
   position: absolute;
-  top: 15px;
+  top: 10px;
   right: 5px;
   z-index: 2;
   height: 40px;
@@ -102,7 +123,7 @@
   border-radius: 5px;
   color: white;
   border: none;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -112,4 +133,54 @@
 
 .keyword-div .search-btn:active {
   background: #3d77cf;
+}
+
+/* ------------------- Copy -------------------------- */
+.copy-btn {
+  background: #FFFFFF;
+  box-shadow: 0px 3px 10px rgba(194, 194, 194, 0.35);
+  border-radius: 3px;
+  color: #0053D0;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s all;
+  margin-right: 20px;
+}
+
+.copy-btn:hover {
+  color: #0053D0;
+  background: #edf3fc;
+}
+
+.copy-btn.active {
+  background: #0053D0;
+  color: white;
+}
+
+.copy-btn:active {
+  background: #cde1ff;
+}
+
+.copy-btn:focus{
+  outline: none;
+}
+
+input {
+  border: 1px solid #D3D3D3;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+/*---------------- Generated copies ------------------ */
+.card-deck {
+  background: #E5E5E5;
+  margin: 0 -40px 30px;
+  padding: 40px;
 }

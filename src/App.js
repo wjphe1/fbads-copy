@@ -1,11 +1,12 @@
 import React from 'react';
-import KeywordSearch from './components/keywordSearch.js';
+import CopyGen from './components/copyGenerator.js';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <KeywordSearch />
+      <CopyGen />
+      <div className="footer">A.I writting. All right reserved 2020</div>
     </div>
   );
 }

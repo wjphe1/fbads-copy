@@ -46,45 +46,43 @@ class Fbform extends React.Component {
     
       render() {
         return (
-            <div className="m-3">
-                <div className="keyword-div text-left">
-                    <h2>Keywords Check <span className="exclaim">!</span></h2>
-                    <div className="position-relative">
-                        <input type="text" value={this.state.keyw} onChange={this.handleChange} />
-                        <button className="search-btn" onClick={this.handleSubmit}>Search</button>
-                    </div>
-                    <h2 className="mt-3">Keywords Reached</h2>
-                    <div className="keyword-table">
-                        {this.state.keydata && this.state.isloaded && <table className="table table-striped">
-                            <thead style={{borderBottom: '2px solid #DBDBDB'}}>
-                                <tr>
-                                <th scope="col">Keywords on Interest</th>
-                                <th scope="col">Potential Reach</th>
-                                <th scope="col">Interest</th>
-                                <th scope="col">Topic</th>
-                                <th scope="col">Disambiguation Category</th>
+            <div className="keyword-div text-left">
+                <h5>Keywords Check <span className="exclaim">!</span></h5>
+                <div className="position-relative">
+                    <input type="text" value={this.state.keyw} onChange={this.handleChange} />
+                    <button className="search-btn" onClick={this.handleSubmit}>Search</button>
+                </div>
+                <h5 className="mt-3">Keywords Reached</h5>
+                <div className="keyword-table">
+                    {this.state.keydata && this.state.isloaded && <table className="table table-striped">
+                        <thead style={{borderBottom: '2px solid #DBDBDB'}}>
+                            <tr>
+                            <th scope="col">Keywords on Interest</th>
+                            <th scope="col">Potential Reach</th>
+                            {/* <th scope="col">Interest</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Disambiguation Category</th> */}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.keydata.map(tile => (
+                                <tr key={tile.id}>
+                                    <td>{tile.name}</td>
+                                    <td>{this.addComma(tile.audience_size)}</td>
+                                    {/* {tile.path.length && <td>{tile.path[0]}/{tile.path[1]}</td>}
+                                    {!tile.path.length && <td> - </td>}
+                                    {tile.topic && <td>{tile.topic}</td>}
+                                    {!tile.topic && <td> - </td>}
+                                    {tile.disambiguation_category && <td>{tile.disambiguation_category}</td>}
+                                    {!tile.disambiguation_category && <td> - </td>} */}
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.keydata.map(tile => (
-                                    <tr key={tile.id}>
-                                        <th scope="row">{tile.name}</th>
-                                        <td>{this.addComma(tile.audience_size)}</td>
-                                        {tile.path.length && <td>{tile.path[0]}/{tile.path[1]}</td>}
-                                        {!tile.path.length && <td> - </td>}
-                                        {tile.topic && <td>{tile.topic}</td>}
-                                        {!tile.topic && <td> - </td>}
-                                        {tile.disambiguation_category && <td>{tile.disambiguation_category}</td>}
-                                        {!tile.disambiguation_category && <td> - </td>}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>}
-                        {!this.state.isloaded && <div className="m-5 text-center">Loading...</div>}
-                        {!this.state.keydata && this.state.isloaded && !this.state.error && <div className="m-5 text-center">Search keyword to see results.</div>}
-                        {!this.state.keydata && this.state.isloaded && this.state.error && <div className="m-5 text-center">No results found.</div>}
-                        {this.state.keydata && this.state.isloaded && !this.state.keydata.length && <div className="m-5 text-center">No results found.</div>}
-                    </div>
+                            ))}
+                        </tbody>
+                    </table>}
+                    {!this.state.isloaded && <div className="m-5 text-center">Loading...</div>}
+                    {!this.state.keydata && this.state.isloaded && !this.state.error && <div className="m-5 text-center">Search keyword to see results.</div>}
+                    {!this.state.keydata && this.state.isloaded && this.state.error && <div className="m-5 text-center">No results found.</div>}
+                    {this.state.keydata && this.state.isloaded && !this.state.keydata.length && <div className="m-5 text-center">No results found.</div>}
                 </div>
             </div>
         );
